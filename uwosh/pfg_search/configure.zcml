@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="uwosh.pfg_search">
+    
+    <five:registerPackage package="." initialize=".initialize" />
+    <cmf:registerDirectory 
+			name="uwosh.pfg_search"
+			directory="skins/uwosh.pfg_search" />
+    <include package=".browser" />
+
+
+    <genericsetup:registerProfile
+      name="default"
+      title="PloneFormGen Search Tool"
+      directory="profiles/default"
+      description="Using uwosh.pfg.d2c, this tool stores form content and creates and interface o search the form data."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+   
+
+</configure>

@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="uwosh.pfg_search">
+    
+    <include package="plone.app.contentmenu" />
+
+    <browser:page
+		for="*"
+		name="pfg_search_view"
+		class=".searchManage.SearchManageView"
+		template="pfg-search_manage_view.cpt"
+		permission="zope2.View"		
+		/>
+</configure>

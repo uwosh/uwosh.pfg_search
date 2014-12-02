@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>  
+<metal:main fill-slot="main">
+<tal:main-macro metal:define-macro="main">
+    <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        
+
+    <div tal:replace="structure provider:plone.belowcontenttitle" />
+    <div tal:replace="structure provider:plone.abovecontentbody" />
+  
+    <form method="POST" tal:attributes="action string:${here/absolute_url}/${template/id};">
+    
+    <h2> Enter search criteria in one to all fields. </h2>
+    <div tal:repeat="result python:view.getFields()">
+        
+	<p tal:replace="python:result['title']">content</p><br/>
+	<input tal:attributes="name python:'search' + result.__name__" type="text" /><br/>   
+        <br/>
+    </div>
+    
+    <input type="submit" name="form.button.submit" value="Submit" />
+    <input type="hidden" name="form.submitted" value="1" />
+    </form>        
+
+    <div tal:replace="structure provider:plone.belowcontentbody" />
+</tal:main-macro>
+</metal:main>
+
+</body>
+</html>

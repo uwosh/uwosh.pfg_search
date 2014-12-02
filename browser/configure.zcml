@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="uwosh.pfg_search">    
+  
+    <browser:page
+        for="*"
+        name="searchForm"
+        class=".search_form.PFGSearchForm"
+        permission="zope2.view"
+        />
+        
+</configure>
